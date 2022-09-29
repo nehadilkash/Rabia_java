@@ -4,7 +4,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class MouseEvent extends Application {
     @Override // Override the start method in the Application class
     public void start(Stage primaryStage) {
         // Create a pane and set its properties
@@ -24,3 +24,5 @@ public class Main extends Application {
     }
 
 }
+
+
