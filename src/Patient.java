@@ -7,12 +7,6 @@ public class Patient {
     private String diagnosis;
     private Bed bed;
 
-    public Patient(String patientName, Date dob, Date dateAdmitted) {
-        this.patientName = patientName;
-        this.dob = dob;
-        this.dateAdmitted = dateAdmitted;
-    }
-
     public Patient(String patientName, Date dob, Date dateAdmitted, String diagnosis) {
         this.patientName = patientName;
         this.dob = dob;
@@ -59,4 +53,17 @@ public class Patient {
     public void setBed(Bed bed) {
         this.bed = bed;
     }
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "patientName='" + patientName + '\'' +
+                ", dob=" + dob +
+                ", dateAdmitted=" + dateAdmitted +
+                ", diagnosis='" + diagnosis + '\'' +
+                ", bed=" + bed +
+                '}';
+    }
+
+
 }
