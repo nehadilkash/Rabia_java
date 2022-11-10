@@ -1,4 +1,4 @@
-public class Main {
+public class Exercise18_13 {
 
     public static void main(String[] args) {
         int[] a = {5, 6, 7, 1, 2, 8, 4};
