@@ -8,7 +8,7 @@ public class Main {
         Comparable p2 = new Person("xyz", 30);
 
 
-        Comparable e1=new Employee("abc", 2500);
+        Comparable e1 = new Employee("abc", 2500);
         Comparable e2 = new Employee("xyz", 3000);
 
         System.out.println(max(p1, p2));
@@ -25,7 +25,7 @@ public class Main {
         Person p4 = new Person("xyz", 30);
 
 
-        Employee e3=new Employee("abc", 2500);
+        Employee e3 = new Employee("abc", 2500);
         Employee e4 = new Employee("xyz", 3000);
 
         System.out.println(max(p3, p4));
@@ -33,7 +33,7 @@ public class Main {
         System.out.println(max(e3, e4));
 
         System.out.println(max(p3, e4));
-        System.out.println(maxwithGen(p3, e3)); //diff concrete types are supported with generic
+//        System.out.println(maxwithGen(p3, e3)); //diff concrete types are supported with generic
 
     }
 
@@ -43,6 +43,13 @@ public class Main {
         else
             return o2;
     }
+
+//    public static <E> E maxwithGen2(E o1, E o2) {
+//        if (o1.compareTo(o2) > 0)
+//            return o1;
+//        else
+//            return o2;
+//    }
 
     public static Comparable max(Comparable o1, Comparable o2) {
         if (o1.compareTo(o2) > 0)
