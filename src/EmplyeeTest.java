@@ -29,7 +29,7 @@ public class EmplyeeTest {
             System.out.println(e);
         }
 
-        Collections.sort(employees);
+//        Collections.sort(employees);
 
         System.out.println("---------------AFTER SORTING EMPLOYEES(By default salary comparable)--------------------");
 
