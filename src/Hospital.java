@@ -1,21 +1,27 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Hospital {
 
-    private Room[] rooms;
+    private List<Room> rooms = new ArrayList<>();
     private String hospitalName;
     private String hospitalAddress;
 
-    public Hospital(Room[] rooms, String hospitalName, String hospitalAddress) {
-        this.rooms = rooms;
+    public Hospital(String hospitalName, String hospitalAddress) {
         this.hospitalName = hospitalName;
         this.hospitalAddress = hospitalAddress;
     }
 
-    public Room[] getRooms() {
+    public List<Room> getRooms() {
         return rooms;
     }
 
-    public void setRooms(Room[] rooms) {
-        this.rooms = rooms;
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+
+    public void addAllRoom(List<Room> rooms) {
+        rooms.addAll(rooms);
     }
 
     public String getHospitalName() {

@@ -1,16 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Room {
     private int roomNumber;
     private int floor;
     private String roomSpeciality;
     private String roomVisitationHours;
-    private Bed[] beds;
+    private List<Bed> beds=new ArrayList<>();
 
-    public Room(int roomNumber, int floor, String roomSpeciality, String roomVisitationHours, Bed[] beds) {
+    public Room(int roomNumber, int floor, String roomSpeciality, String roomVisitationHours) {
         this.roomNumber = roomNumber;
         this.floor = floor;
         this.roomSpeciality = roomSpeciality;
         this.roomVisitationHours = roomVisitationHours;
-        this.beds = beds;
     }
 
     public int getRoomNumber() {
@@ -45,11 +47,15 @@ public class Room {
         this.roomVisitationHours = roomVisitationHours;
     }
 
-    public Bed[] getBeds() {
+    public List<Bed> getBeds() {
         return beds;
     }
 
-    public void setBeds(Bed[] beds) {
-        this.beds = beds;
+    public void addBed(Bed bed) {
+        beds.add(bed);
+    }
+
+    public void addAllBed(List<Bed> beds) {
+        beds.addAll(beds);
     }
 }

@@ -1,33 +1,23 @@
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
-public class Patient {
-    private String patientName;
-    private Date dob;
+public class Patient extends Person {
+
     private Date dateAdmitted;
     private String diagnosis;
+    private List<Doctor> doctors=new ArrayList<>();
     private Bed bed;
 
+    public Patient(String name) {
+        super(name);
+    }
+
     public Patient(String patientName, Date dob, Date dateAdmitted, String diagnosis) {
-        this.patientName = patientName;
-        this.dob = dob;
+        super(patientName, dob);
         this.dateAdmitted = dateAdmitted;
         this.diagnosis = diagnosis;
-    }
-
-    public String getPatientName() {
-        return patientName;
-    }
-
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
-
-    public Date getDob() {
-        return dob;
-    }
-
-    public void setDob(Date dob) {
-        this.dob = dob;
     }
 
     public Date getDateAdmitted() {
@@ -54,16 +44,17 @@ public class Patient {
         this.bed = bed;
     }
 
+    public List<Doctor> getDoctors() {
+        return doctors;
+    }
+
     @Override
     public String toString() {
         return "Patient{" +
-                "patientName='" + patientName + '\'' +
-                ", dob=" + dob +
-                ", dateAdmitted=" + dateAdmitted +
+                "dateAdmitted=" + dateAdmitted +
                 ", diagnosis='" + diagnosis + '\'' +
                 ", bed=" + bed +
-                '}';
+                "} " + super.toString();
     }
-
 
 }
