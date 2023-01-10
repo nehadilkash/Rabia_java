@@ -1,3 +1,5 @@
+package com.java3.singleClient;
+
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -28,10 +30,11 @@ public class Server extends Application {
                     ta.appendText("Server Started at " + new Date() + "\n");
                 });
 
-                Socket socket = serverSocket.accept();
-                DataInputStream dataInputStreamFromClient = new DataInputStream(socket.getInputStream());
-                DataOutputStream dataOutputStreamToClient = new DataOutputStream(socket.getOutputStream());
+
                 while (true) {
+                    Socket socket = serverSocket.accept();
+                    DataInputStream dataInputStreamFromClient = new DataInputStream(socket.getInputStream());
+                    DataOutputStream dataOutputStreamToClient = new DataOutputStream(socket.getOutputStream());
                     double radius = dataInputStreamFromClient.readDouble();
                     Platform.runLater(() -> {
                         ta.appendText("Received radius from Client : " + radius + "\n");
