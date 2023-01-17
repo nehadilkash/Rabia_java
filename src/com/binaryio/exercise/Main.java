@@ -1,8 +1,6 @@
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+package com.binaryio.exercise;
+
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.Date;
 
 public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {

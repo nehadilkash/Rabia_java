@@ -1,3 +1,5 @@
+package com.binaryio.exercise;
+
 import java.io.*;
 import java.util.Date;
 
