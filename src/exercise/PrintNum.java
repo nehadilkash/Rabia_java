@@ -1,3 +1,5 @@
+package exercise;
+
 // The task class for printing numbers from 1 to n for a given n
 class PrintNum implements Runnable {
     private int lastNum;

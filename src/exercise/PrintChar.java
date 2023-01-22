@@ -1,3 +1,5 @@
+package exercise;
+
 class PrintChar implements Runnable {
     private char charToPrint; // The character to print
     private int times; // The number of times to repeat

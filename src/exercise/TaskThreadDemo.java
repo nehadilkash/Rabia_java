@@ -1,3 +1,5 @@
+package exercise;
+
 public class TaskThreadDemo {
     public static void main(String[] args) throws InterruptedException {
         // Create tasks

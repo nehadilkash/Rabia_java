@@ -1,3 +1,5 @@
+package exercise;
+
 public class PrintEven extends Thread {
     int limit;
 
