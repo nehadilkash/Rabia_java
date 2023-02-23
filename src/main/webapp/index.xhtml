@@ -15,7 +15,7 @@
                          requiredMessage="Loan Amount is required"
                          validatorMessage="Loan Amount should be greater than 0"
                          value="#{loan.loanAmount}">
-                <f:validateRegex pattern="[1-9][0-9]*.[\d]{0,2}"/>
+                <f:validateRegex pattern="^[1-9]\d*\.\d{1,2}$"/>
             </h:inputText>
             <h:message for="loanAmountInputText" style="color:red"/>
 
@@ -24,7 +24,7 @@
                          requiredMessage="Annual Interest Rate is required"
                          validatorMessage="Invalid Annual Interest Rate only 2 decimals allowed"
                          value="#{loan.annualInterestRate}">
-                <f:validateRegex pattern="[\d]{1,2}.[\d]{0,2}"/>
+                <f:validateRegex pattern="^\d{1,2}\.\d{1,2}$"/>
             </h:inputText>
             <h:message for="annualInterestRateInputText" style="color:red"/>
 
