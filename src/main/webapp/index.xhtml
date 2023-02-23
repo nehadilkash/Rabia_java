@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head><title> Compute Loan Payment</title>
+    <h3>Compute Loan Payment</h3>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="3">
+            <h:outputLabel value="Loan Amount:"/>
+            <h:inputText id="loanAmountInputText" required="true"
+                         requiredMessage="Loan Amount is required"
+                         validatorMessage="Loan Amount should be greater than 0"
+                         value="#{loan.loanAmount}">
+                <f:validateRegex pattern="[1-9][0-9]*.[\d]{0,2}"/>
+            </h:inputText>
+            <h:message for="loanAmountInputText" style="color:red"/>
+
+            <h:outputLabel value="Annual Interest Rate:"/>
+            <h:inputText id="annualInterestRateInputText" required="true"
+                         requiredMessage="Annual Interest Rate is required"
+                         validatorMessage="Invalid Annual Interest Rate only 2 decimals allowed"
+                         value="#{loan.annualInterestRate}">
+                <f:validateRegex pattern="[\d]{1,2}.[\d]{0,2}"/>
+            </h:inputText>
+            <h:message for="annualInterestRateInputText" style="color:red"/>
+
+            <h:outputLabel value="Number Of Years:"/>
+            <h:selectOneMenu id="yearsSelectOneMenu" required="true"
+                             requiredMessage="Annual Interest Rate is required"
+                             validatorMessage="Invalid Annual Interest Rate only 2 decimals allowed"
+                             value="#{loan.numberOfYears}">
+                <f:selectItem itemLabel="1" itemValue="1"/>
+                <f:selectItem itemLabel="2" itemValue="2"/>
+                <f:selectItem itemLabel="3" itemValue="3"/>
+                <f:validateRegex pattern="[\d]{1,2}"/>
+            </h:selectOneMenu>
+            <h:message for="yearsSelectOneMenu" style="color:red"/>
+
+        </h:panelGrid>
+
+
+        <h:commandButton value="Compute Loan Payment"
+                         action="#{loan.processSubmit()}"/>
+        <h:commandButton value="Reset"  action="#{loan.processClear()}"/>
+        <br/>
+
+    </h:form>
+</h:body>
+</html>
