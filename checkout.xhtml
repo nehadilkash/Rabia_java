@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      style="text-align: -webkit-center; background-color: #ede6f1;">
+<h:head><title> Duke's Bookstore</title>
+    <h3 style="font-size: -webkit-xxx-large; ">Duke's Bookstore</h3>
+    <h:outputStylesheet library="css" name="styles.css"/>
+</h:head>
+<h:body>
+    <h:dataTable value="#{shoppingCart.getCartItems()}" var="p" styleClass="employeeTable"
+                 headerClass="employeeTableHeader"
+                 rowClasses="employeeTableOddRow,employeeTableEvenRow"
+                 style="font-size: x-large; font-family: cursive;">
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            <h:outputText value="#{p.getBook().bookName}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Quantity</f:facet>
+            <h:outputText value="#{p.quantity}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">Price</f:facet>
+            <h:outputText value="#{p.book.price * p.quantity}"/>
+        </h:column>
+    </h:dataTable>
+    <h:form style="margin-top: 8%; font-size: xx-large;">
+        <h:panelGrid columns="4">
+
+            <h:outputLabel value="Select State"/>
+            <h:selectOneMenu id="stateSelectOneMenu" required="true"
+                             requiredMessage="State is required"
+                             value="#{computeTax.selectedStateTax}" converter="stateConverter"  style="font-size: x-large;">
+                <f:selectItems value="#{computeTax.stateTaxes}" var="entry"
+                               itemValue="#{entry}" itemLabel="#{entry.getState()}"/>
+            </h:selectOneMenu>
+            <h:message for="stateSelectOneMenu" style="color:red"/>
+
+
+            <h:commandButton value="Compute Payment"
+                             action="#{computeTax.processSubmit()}"  style= "font-size: x-large;"/>
+        </h:panelGrid>
+    </h:form>
+    <h:panelGroup layout="block"  style= "font-size: x-large;">
+
+        <br/>
+        <h:outputLabel value="Subtotal : $#{shoppingCart.getSubTotal()}"/>
+        <br/>
+        <h:outputLabel value="Shipping Fees: $3.00"/>
+        <br/>
+        <h:outputLabel value="Tax Amount : $#{computeTax.selectedStateTax.getTax()}"/>
+        <br/>
+        <h:outputLabel>-------------------------------------------------------------------</h:outputLabel>
+        <br/>
+        <h:outputLabel value="Grand Total: $#{shoppingCart.getSubTotal()+3+computeTax.selectedStateTax.getTax()}"/>
+    </h:panelGroup>
+
+
+</h:body>
+</html>
